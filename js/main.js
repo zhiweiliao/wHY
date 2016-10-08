@@ -14,7 +14,7 @@ var svg = d3.select("#chart-area").append("svg")
 
 // Scales
 var x = d3.scale.ordinal()
-	.rangeRoundBands([width,0], .1);
+	.rangeBands([width,0],1);
 
 var y = d3.scale.linear()
 	.range([height, 0]);
@@ -132,7 +132,7 @@ function updateVisualization() {
 	circle.transition()
 		.attr("cx",function(d){return x(d.yr);})
 		.attr("cy",function(d){return y(d[option]);})
-		.attr("r",5)
+		.attr("r",13)
 		.style("fill",function(d){
 			if(d.BUDGET < 100000000){
 				return "#3b3a30"
