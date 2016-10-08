@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>wHY</title>
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<div class="container">
+		<span >
+		<h1 id="head">wHY<sup>?</sup></h1>
+		<h2 id="head2">Art Projects Analysis</h2>
+		</span>
+
+		<!--
+		<input type="number" id="min" value="1930">
+					<input type="number" id="max" value="2014">
+					<span id="time-period-filter" class="btn btn-default" onclick="updateVisualization()"></span>
+					Parent container for the visualization -->
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8">
+
+					<div  class="wrap">
+					<select id="chart-option" onchange="updateVisualization()">
+						<option value="AREA">AREA</option>
+
+
+						<option value="BUDGET">BUDGET</option>
+
+					</select>
+					</div>
+					<div id="chart-area">
+
+				</div>
+					</div>
+					<div class="col-sm-4">
+						<table style="width:100%">
+
+							<tr>
+								<td id="PROJECT">Project</td>
+								<td ></td>
+							</tr>
+							<tr>
+
+								<td id="BUDGET">Budget</td>
+							<tr>
+
+								<td id="AREA">Area</td>
+							</tr>
+							<tr>
+
+								<td id="YEAR">Year</td>
+							</tr>
+							<tr>
+
+								<td id="LOCATION">Location</td>
+							</tr>
+							<tr>
+							<img src="data/img/AK360.jpg" id="image" alt="just nothing">
+							</tr>
+
+						</table>
+					</div>
+
+
+
+
+
+	</div>
+
+
+
+	<!-- Load JS libraries: jQuery, bootstrap, D3, D3 tooltip -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/d3.min.js"></script>
+	<script src="js/d3.tip.js"></script>
+
+	<!-- Your implementation -->
+	<script src="js/main.js"></script>
+</body>
+</html>
