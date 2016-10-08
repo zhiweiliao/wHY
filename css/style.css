@@ -6,6 +6,8 @@
 /*  LINE CHART  */
 /****************/
 body{
+
+  font-family: 'Oswald', sans-serif;
   background-color: lightgrey;
   font-size: 15px;
 }
@@ -77,10 +79,12 @@ body{
 }
 
 #head{
+  font-family: 'Roboto Slab', serif;
   text-align: center;
   font-size:50px;
 }
 #head2{
+
   text-align: center;
   font-size: 20px;
 }
