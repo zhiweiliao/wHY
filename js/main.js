@@ -1,9 +1,9 @@
 
 // SVG drawing area
 
-var margin = {top: 40, right: 40, bottom: 60, left: 60};
+var margin = {top: 40, right: 60, bottom: 60, left: 80};
 
-var width = 800 - margin.left - margin.right,
+var width = 600 - margin.left - margin.right,
 		height = 500 - margin.top - margin.bottom;
 
 var svg = d3.select("#chart-area").append("svg")
@@ -29,7 +29,6 @@ var yAxis = d3.svg.axis()
 
 var xAxisGroup = svg.append("g")
 	.attr("class", "x‐axis axis")
-	//.attr("fill","red")
 	.attr("transform", "translate(0," + height + ")");
 
 var yAxisGroup = svg.append("g")
@@ -121,6 +120,22 @@ function updateVisualization() {
 	svg.select(".y‐axis")
 		.call(yAxis);
 
+	var tip = d3.tip()
+		.attr('class', 'd3-tip')
+		.offset([-10, 0])
+		.html(function(d) {
+			return "<strong></strong>"
+				+ "<div style='color:white'>"
+				+ d.PROJECT
+				+ "<br>"
+				+ "Year: "
+				+ d.yr
+				+ "</div>";
+		})
+
+
+	svg.call(tip);
+
 //join
 	var circle = svg.selectAll("circle")
 		.data(filterData);
@@ -133,6 +148,7 @@ function updateVisualization() {
 		.attr("cx",function(d){return x(d.yr);})
 		.attr("cy",function(d){return y(d[option]);})
 		.attr("r",13)
+		.attr("fill-opacity",0.8)
 		.style("fill",function(d){
 			if(d.BUDGET < 100000000){
 				return "#3b3a30"
@@ -144,11 +160,11 @@ function updateVisualization() {
 
 	circle.on("click",function(d){
 		return showEdition(d);
-
-
-
-
 	});
+
+	circle.on("click",function(d){return showEdition(d);})
+		.on('mouseover', tip.show)
+		.on('mouseout', tip.hide);
 
 // Exit
 	circle.exit().remove();
