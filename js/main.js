@@ -118,6 +118,7 @@ function updateVisualization() {
 		.call(xAxis);
 
 	svg.select(".y‐axis")
+		.transition()
 		.call(yAxis);
 
 	var tip = d3.tip()
