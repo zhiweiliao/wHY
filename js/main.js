@@ -1,4 +1,3 @@
-
 // SVG drawing area
 
 var margin = {top: 40, right: 60, bottom: 60, left: 80};
@@ -62,32 +61,17 @@ function loadData() {
 		console.log(data);
 		// Draw the visualization for the first time
 		updateVisualization();
-		//showEdition();
+
 
 	});
 }
-
-
-
 var sline = svg.append("path")
 		.attr("class", "line");
 
 var option="AREA";
 
-// define a line function
-//var lines=d3.svg.line()
-//	.x(function(d){return x(d.yr)})
-//	.y(function(d){return y(d[option])})
-//	.interpolate("linear");
-
-
-
-
 // Render visualization
 function updateVisualization() {
-// create min max; create html btn;
-	//var min=d3.select("#min").property("value"), max=d3.select("#max").property("value");
-
 	option=d3.select("#chart-option").property("value");
 
 //	filterData=data.filter(function(d){return d.yr <= max && d.yr >= min;});
@@ -98,18 +82,11 @@ function updateVisualization() {
 
 	svg.append("text")
 		.attr("class","x")
-		//.attr("text-anchor", "left")
-		.attr("transform", "translate("+ 25 +","+50+")rotate(-90)")
+		.attr("text-anchor", "end")
+		.attr("transform", "translate("+ 25 +","+0+")rotate(-90)")
 
 	svg.select("text.x")
 		.text(option);
-
-
-
-
-// join data with geometry
-//	sline.transition()
-//		.attr("d",lines(filterData));
 
 // Update (set the dynamic properties of the elements)
 	svg.select(".x‐axis")
@@ -134,7 +111,6 @@ function updateVisualization() {
 				+ "</div>";
 		})
 
-
 	svg.call(tip);
 
 //join
@@ -156,7 +132,6 @@ function updateVisualization() {
 			}
 			else { return "red"}
 		})
-		//.style("stroke","darkgrey")
 		.text("+ d[PROJECT] +");
 
 	circle.on("click",function(d){
@@ -172,8 +147,6 @@ function updateVisualization() {
 
 }
 
-
-
 // Show details for a specific FIFA World Cup
 function showEdition(d){
 	var f=d3.format(",");
@@ -185,7 +158,5 @@ function showEdition(d){
 	d3.select("#BUDGET").text("Budget: "+f(d.BUDGET) +" USD");
 	d3.select("#YEAR").text("Year: "+d.yr +" ");
 	d3.select("#LOCATION").text("Location: "+d.LOCATION +" ");
-
-
 
 }
